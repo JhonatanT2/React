@@ -1,0 +1,54 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import  Inicio  from './routes/Inicio';
+import Personajes from './routes/Personajes';
+import ErrorPage from './routes/ErrorPage';
+import Pelicula from './routes/Pelicula';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { Vehiculos } from './routes/Vehiculos';
+import Naves from './routes/Naves';
+import Planetas from './routes/Planetas';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Inicio/>,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "Personajes/:userId",
+    element: <Personajes/>,
+  },
+  {
+    path:"Pelicula/:movieId",
+    element: <Pelicula/>,
+  },
+  {
+    path:"Vehiculos/:vehiculoId",
+    element: <Vehiculos/>,
+  },
+  {
+    path:"Naves/:naveId",
+    element: <Naves/>,
+  },
+  {
+    path:"Planetas/:planetId",
+    element: <Planetas/>,
+  }
+]);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <RouterProvider router={router} />
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
